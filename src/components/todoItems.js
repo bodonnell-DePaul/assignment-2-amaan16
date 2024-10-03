@@ -6,20 +6,36 @@ import Tab from 'react-bootstrap/Tab';
 
 
 const getVariant = (dueDate) => {
+  // this code is according to me
   const currentDate = new Date();
   const dueDateObj = new Date(dueDate);
   const differenceInTime = dueDateObj - currentDate;
-  const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24)); // Convert milliseconds to days
-
+  const differenceInDays = Math.ceil(differenceInTime / (1000 * 3600 * 24)); 
   if (differenceInDays < 2) {
+    console.log('danger')
     return 'danger'; // Due date < 2 days
   } else if (differenceInDays < 4) {
+    console.log('warning')
     return 'warning'; // Due date < 4 days
   } else if (differenceInDays < 7) {
+    console.log('success')
     return 'success'; // Due date < 7 days
   } else {
+    console.log('primary')
     return 'primary'; // Due date > 7 days
   }
+  // console.log('currentDate: ',currentDate,'  dueDateObj  ',dueDateObj,'  differenceInDays  ',differenceInDays)
+
+  //logic acording to test file
+  // const currenDate = new Date();
+  // const dueDatObj = new Date(dueDate);
+  // const diffTime = Math.abs(dueDatObj - currenDate);
+  // const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  // console.log('currenDate: ', currenDate, '  dueDatObj  ', dueDatObj, '  diffDays  ', diffDays)
+  // if (diffDays > 7) return 'primary';
+  // if (diffDays <= 7 && diffDays > 4) return 'success';
+  // if (diffDays <= 4 && diffDays > 2) return 'warning';
+  // return 'danger';
 };
 
 function TodoItems({ todos, handleDateChange, handleDescriptionChange }) {
@@ -31,11 +47,11 @@ function TodoItems({ todos, handleDateChange, handleDescriptionChange }) {
       <Row>
         <Col sm={3}>
           <ListGroup as="ul">
-            {todos.map((todo, index) => (
-              <ListGroup.Item key={todo.title} eventKey={index} as="li" action
-              variant={getVariant(todo.dueDate)}>
-                {todo.title}
-              </ListGroup.Item>
+            {todos.map((todo, index) => (       
+                <ListGroup.Item key={todo.title} eventKey={index} as="li" action
+                  variant={getVariant(todo.dueDate)}>
+                  {todo.title}
+                </ListGroup.Item>
             ))}
           </ListGroup>
         </Col>
