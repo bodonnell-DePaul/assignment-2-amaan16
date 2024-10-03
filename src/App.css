@@ -36,6 +36,7 @@
 }
 .list-group-item{
   cursor: pointer;
+  margin-bottom: 4px;
 }
 
 .form button {

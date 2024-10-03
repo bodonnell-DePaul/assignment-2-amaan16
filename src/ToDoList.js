@@ -35,7 +35,7 @@ const todos = [
 
 
 
-function App() {
+function TodoList() {
   const [todosState, setTodosState] = useState(todos);
   useEffect(()=>{},[todos]);
 
@@ -59,7 +59,7 @@ function App() {
   return (
     <div>
       <div className='heading'>
-        <h2>Assignment 2: Amaan's ToDo List</h2>
+        <h2>Assignment 2: ToDo List</h2>
       </div>
       <div className='content'>
         <NewTodoForm addTodo = {addTodo}/>
@@ -69,4 +69,4 @@ function App() {
   );
 }
 
-export default App;
+export default TodoList;

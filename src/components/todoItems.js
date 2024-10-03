@@ -32,7 +32,7 @@ function TodoItems({ todos, handleDateChange, handleDescriptionChange }) {
         <Col sm={3}>
           <ListGroup as="ul">
             {todos.map((todo, index) => (
-              <ListGroup.Item key={index} eventKey={index} as="li" action
+              <ListGroup.Item key={todo.title} eventKey={index} as="li" action
               variant={getVariant(todo.dueDate)}>
                 {todo.title}
               </ListGroup.Item>
