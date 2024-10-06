@@ -43,7 +43,7 @@ function TodoList() {
     const updatedTodos = [...todosState];
     updatedTodos[index].dueDate = newDate;
     setTodosState(updatedTodos);
-    console.log(todos[index].dueDate)
+    console.log(todosState[index].dueDate)
   }
 
   function handleDescriptionChange(index, newDescription) {
